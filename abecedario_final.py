@@ -178,7 +178,7 @@ with mp_hands.Hands(
 
                     cv2.putText(image, 'J', (700, 150), 
                                 cv2.FONT_HERSHEY_SIMPLEX, 
-                                3.0, (0, 0, 255), 6)    
+                                3.0, (0, 0, 255), 6)       
 
                 elif distancia_euclidiana(index_finger_tip, middle_finger_tip) > 75 \
                     and distancia_euclidiana(thumb_tip, ring_finger_tip) < 65 and not distancia_euclidiana(thumb_tip, middle_finger_tip) < 65 \
