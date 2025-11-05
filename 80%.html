@@ -60,10 +60,51 @@
         <h3>📝 Mensaje:</h3>
         <div id="text"></div>
     </div>
+    <div id="image-container"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
     <script>
+        function mostrarImagenLetra(letra) {
+            const imageContainer = document.getElementById("image-container");
+            const imagenes = {
+                "A": "https://i.ibb.co/1fGdtcMq/A.jpg",
+                "B": "https://i.ibb.co/351mpFRR/B.jpg",
+                "C": "https://i.ibb.co/nqjpBkYs/C.jpg",
+                "D": "https://i.ibb.co/9kh5JYhq/D.jpg",
+                "E": "https://i.ibb.co/RkyV3Nqm/E.jpg",
+                "F": "https://i.ibb.co/4ZcY0yQ7/F.jpg",
+                "G": "https://i.ibb.co/PvbFJPgF/G.jpg",
+                "H": "https://i.ibb.co/zp6R0vR/H.jpg",
+                "I": "https://i.ibb.co/CKQCDSCJ/I.jpg",
+                "J": "https://i.ibb.co/5gPvC59R/J.jpg",
+                "K": "https://i.ibb.co/B0c17dD/K.jpg",
+                "L": "https://i.ibb.co/6cYKbM4g/L.jpg",
+                "M": "https://i.ibb.co/W4pQJ5k7/M.jpg",
+                "N": "https://i.ibb.co/dsKKs8RL/N.jpg",
+                "O": "https://i.ibb.co/Xkxnhgmv/O.jpg",
+                "P": "https://i.ibb.co/1tcFBNdX/P.jpg",
+                "Q": "https://i.ibb.co/9kgzGcrh/Q.jpg",
+                "R": "https://i.ibb.co/27h6ctC6/R.jpg",
+                "S": "https://i.ibb.co/Z1GBCMDb/S.jpg",
+                "T": "https://i.ibb.co/5Xt3MmRR/T.jpg",
+                "U": "https://i.ibb.co/Kx3MH0X5/U.jpg",
+                "V": "https://i.ibb.co/39TP0Vwc/V.jpg",
+                "W": "https://i.ibb.co/Xx98yBr1/W.jpg",
+                "X": "https://i.ibb.co/8LvyHT0t/X.jpg",
+                "Y": "https://i.ibb.co/yc3JY3PL/Y.jpg"
+            };
+
+            imageContainer.innerHTML = "";
+            if (imagenes[letra.trim()]) {
+                const img = document.createElement("img");
+                img.src = imagenes[letra.trim()];
+                img.alt = letra;
+                imageContainer.appendChild(img);
+            } else {
+                imageContainer.textContent = "";
+            }
+        }
         // Funciones de reconocimiento de señas
         function personsInput(handCoordinates) {
             const distance = (x1, y1, x2, y2) => {
@@ -274,7 +315,8 @@
 
                     timeoutId = setTimeout(() => {
                         textDiv.textContent += letra;
-                    }, 2000)
+                        mostrarImagenLetra(letra.trim());
+                    }, 1500);
                 }
                 drawFrame(ctx, handCoords, letra, canvas.width, canvas.height);
 
