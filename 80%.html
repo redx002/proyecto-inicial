@@ -51,7 +51,7 @@
     </style>
 </head>
 <body>
-    <h1>🤟 Detector de Lenguaje de Señas</h1>
+    <h1>🤟 Traductor de Lenguaje de Señas</h1>
     <div id="status">Cargando MediaPipe...</div>
     <video id="video"></video>
     <canvas id="canvas"></canvas>
@@ -316,7 +316,7 @@
                     timeoutId = setTimeout(() => {
                         textDiv.textContent += letra;
                         mostrarImagenLetra(letra.trim());
-                    }, 1500);
+                    },1200)
                 }
                 drawFrame(ctx, handCoords, letra, canvas.width, canvas.height);
 
