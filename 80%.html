@@ -2,7 +2,20 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <style>
+    <style> 
+        #editor-section {
+            display: flex;
+            align-items: center; /*centra verticalmente */
+            justify-content: flex-start;
+            gap: 20px;          /*separacion entre el texto y la imagen */
+            margin-top: 20px;
+        }
+        #image-container img{
+            width: 150px;
+            height: auto;
+            border-radius: 12px;
+            border: 2px solid #0066ff;
+        }
         body {
             margin: 0;
             padding: 20px;
@@ -61,12 +74,15 @@
         <div id="text"></div>
     </div>
     <!-- 🔹 Campo de texto editable -->
-    <div id="manual-input">
-        <h3>✏️ Editar texto manualmente:</h3>
-        <input id="editor" type="text" placeholder="Escribe aquí..." maxlength="50"
-             style="padding:10px; width:300px; border-radius:6px; border:none; font-size:18px;">
+    <div id="editor-section">
+        <div id="manual-input">
+            <h3>✏️ Editar texto manualmente:</h3>
+            <input id="editor" type="text" placeholder="Escribe aquí..." maxlength="50"
+                   style="padding:10px; width:300px; border-radius:6px; border:none; font-size:18px;">
+        </div>
+
+        <div id="image-container"></div>
     </div>
-    <div id="image-container"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
