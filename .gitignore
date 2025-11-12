@@ -218,3 +218,6 @@ __marimo__/
 #pycache
 **/__pycache__/
 .DS_Store
+
+#API key
+.env

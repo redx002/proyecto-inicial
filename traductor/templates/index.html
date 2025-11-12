@@ -1,1 +1,66 @@
-<h1>hola mundo</h1>
+{% extends "layouts/base.html" %} 
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}" />
+{% endblock %}
+
+{% block content %}
+  <h1>🤟 Traductor de Lenguaje de Señas</h1>
+  <div id="status">Cargando MediaPipe...</div>
+  <video id="video"></video>
+  <canvas id="canvas"></canvas>
+
+  <div id="message">
+    <h3>📝 Mensaje:</h3>
+    <div id="text"></div>
+    <div id="controls">
+      <button id="clearBtn">
+        🗑️ Limpiar Texto
+      </button>
+
+      <div>
+        <label>Color:</label>
+        <input
+          type="color"
+          id="colorPicker"
+          value="#ffffff"
+        />
+      </div>
+
+      <div>
+        <label>Tamaño:</label>
+        <input
+          type="range"
+          id="fontSizeSlider"
+          min="16"
+          max="48"
+          value="24"
+        />
+        <span id="fontSizeLabel">24px</span>
+      </div>
+    </div>
+  </div>
+
+    <!-- 🔹 Campo de texto editable -->
+  <div id="editor-section">
+    <div id="manual-input">
+      <h3>✏️ Editar texto manualmente:</h3>
+      <input
+        id="editor"
+        type="text"
+        placeholder="Escribe aquí..."
+        maxlength="50"
+      />
+    </div>
+
+    <div id="image-container"></div>
+  </div>
+{% endblock %}
+
+{% block extra_js %}
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+  <script src="{% static 'js/index.js' %}"></script>
+  <script src="{% static 'js/camara.js' %}"></script>
+{% endblock %}
